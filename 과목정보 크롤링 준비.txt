@@ -1,0 +1,15 @@
+https://sugang.khu.ac.kr/core
+
+Parameter
+
+attribute : lectListJson
+lang : ko
+loginYn : N
+menu : 1
+p_major : A10627(컴퓨터공학부 컴퓨터공학과)
+            A10628(컴퓨터공학부 인공지능학과)
+            A07337(소프트웨어학부 소프트웨어학과)
+            A07308(컴퓨터공학과 컴퓨터공학)     
+p_year : 2022 ( 연도 )
+p_term : 10 (1학기: 10, 여름계절학기: 15, 2학기: 20, 겨울계절학기: 25)
+initYn : Y
