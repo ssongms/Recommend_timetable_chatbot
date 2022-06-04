@@ -20,15 +20,17 @@ var options = {
 
 request(options, function (error, response) {
   if (error) throw new Error(error);
-  var jason = response.body
-  var json = JSON.parse(jason)
+  var json = response.body
+  json = JSON.parse(json)
   
-  const data = {}
+  const data = {};
 
   for (var i in json["rows"]) {
-    console.log(json["rows"][i])
     
-
+    var subjt_name = json["rows"][i]["subjt_name"]
+    data[subjt_name] = [json["rows"][i]["timetable"], json["rows"][i]["teach_na"], json["rows"][i]["unit_num"]]
   }
-  console.log(json["rows"][0]["subjt_name"])
+  console.log(data)
+
+
 });

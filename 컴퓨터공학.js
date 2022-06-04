@@ -19,4 +19,7 @@ var options = {
 request(options, function (error, response) {
   if (error) throw new Error(error);
   console.log(response.body);
+  var data = response.body;
+  
+  console.log(typeof data);
 });
