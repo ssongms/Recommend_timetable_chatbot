@@ -22,13 +22,13 @@ request(options, function (error, response) {
   if (error) throw new Error(error);
   var jason = response.body
   var json = JSON.parse(jason)
-  
-  const data = {}
 
-  for (var i in json["rows"]) {
-    console.log(json["rows"][i])
-    
-
+  for (var i in json["rows"]){
+    var obj = {};
+    obj['name'] = json["rows"][i]["subjt_name"];
+    obj['time'] = json["rows"][i]["timetable"];
+    obj['prof'] = json["rows"][i]["teach_na"];
+    obj['credit'] = json["rows"][i]["unit_num"];
+    console.log(obj);
   }
-  console.log(json["rows"][0]["subjt_name"])
 });
