@@ -23,10 +23,17 @@
   (Demo 현재 소프트웨어융합대학 소속 학과만 제공)
   
 # Contributing
+* 1 fork the project
+* 2 feature 브랜치 생성 (git checkout -b feature/{function})
+* 3 변경사항 commit (git commit -m 'Add some function)
+* 4 원격 브랜치로 push (git push origin feature/{function})
+* 5 pull request 요청
 
 # License
+[MIT LICENSE](LICENSE)
 
 # Contact
 * 곽병민 : bqudmals@khu.ac.kr
 * 송민석 : songms0909@khu.ac.kr
 * 이나경 : 2000skrud@khu.ac.kr
+* KHUHUB : http://khuhub.khu.ac.kr/2019102206/time_table
