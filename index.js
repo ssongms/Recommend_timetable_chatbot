@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const { range } = require("express/lib/request");
 const xlsx = require("xlsx");
 
+fs.readdirSync(testFolder).forEach(file => {
+  console.log(file);
+});
+
 const excelFile = xlsx.readFile("./GuideLine/컴퓨터공학과 권장이수 가이드라인.xlsx");
 
 const sheetName = excelFile.SheetNames[0];
@@ -30,7 +34,7 @@ function jason_to_arry() {
     fourth_second.push(jsonData[data]['4학년 2학기']);
   }
 }
-// jason -> array로 변경
+// json -> array로 변경
 function remove_null() {
   first_first = first_first.filter(function (item) {
     return item !== null && item !== undefined && item !== '';
@@ -66,7 +70,6 @@ function remove_null() {
   new_list.push(fourth_second);
 }
 // null 값 제거
-
 jason_to_arry()
 remove_null()
 
@@ -83,8 +86,6 @@ const connect = mongoose.connect(config.url,
 var express = require('express');
 
 var major_list = ["A07337", "A10628", "A07308", "A10627"];
-
-
 const { Subinfo } = require('./models/model');
 var request = require('request');
 for (i in major_list) {
