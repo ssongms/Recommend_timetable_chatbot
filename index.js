@@ -2,17 +2,7 @@ const config = require('./config')
 const mongoose = require("mongoose");
 const { range } = require("express/lib/request");
 const xlsx = require("xlsx");
-
-fs.readdirSync(testFolder).forEach(file => {
-  console.log(file);
-});
-
-const excelFile = xlsx.readFile("./GuideLine/컴퓨터공학과 권장이수 가이드라인.xlsx");
-
-const sheetName = excelFile.SheetNames[0];
-const firstSheet = excelFile.Sheets[sheetName];
-const jsonData = xlsx.utils.sheet_to_json(firstSheet);
-
+const fs = require('fs')
 var first_first = [];
 var first_second = [];
 var second_first = [];
@@ -21,8 +11,8 @@ var third_first = [];
 var third_second = [];
 var fourth_first = [];
 var fourth_second = [];
-var new_list = [];
-function jason_to_arry() {
+var new_list = {};
+function jason_to_arry(jsonData) {
   for (var data in jsonData) {
     first_first.push(jsonData[data]['1학년 1학기']);
     first_second.push(jsonData[data]['1학년 2학기']);
@@ -35,7 +25,8 @@ function jason_to_arry() {
   }
 }
 // json -> array로 변경
-function remove_null() {
+function remove_null(major) {
+
   first_first = first_first.filter(function (item) {
     return item !== null && item !== undefined && item !== '';
   });
@@ -60,18 +51,40 @@ function remove_null() {
   fourth_second = fourth_second.filter(function (item) {
     return item !== null && item !== undefined && item !== '';
   });
-  new_list.push(first_first);
-  new_list.push(first_second)
-  new_list.push(second_first)
-  new_list.push(second_second);
-  new_list.push(third_first)
-  new_list.push(third_second);
-  new_list.push(fourth_first);
-  new_list.push(fourth_second);
+  new_list[major]=[first_first,first_second,second_first,second_second,third_first,third_second,fourth_first,fourth_second]
+  // new_list.push(first_first);
+  // new_list.push(first_second)
+  // new_list.push(second_first)
+  // new_list.push(second_second);
+  // new_list.push(third_first)
+  // new_list.push(third_second);
+  // new_list.push(fourth_first);
+  // new_list.push(fourth_second);
 }
+
+fs.readdirSync("./GuideLine").forEach(file => {
+  // console.log(file);
+  var major=file.split(' ')[0]
+  console.log(major)
+  const excelFile = xlsx.readFile(`./GuideLine/${file}`)
+  const sheetName = excelFile.SheetNames[0];
+  const firstSheet = excelFile.Sheets[sheetName];
+  const jsonData = xlsx.utils.sheet_to_json(firstSheet)
+  jason_to_arry(jsonData)
+  remove_null(major)
+  first_first = [];
+  first_second = [];
+  second_first = [];
+  second_second = [];
+  third_first = [];
+  third_second = [];
+  fourth_first = [];
+  fourth_second = [];
+});
+console.log(new_list[''])
+// const excelFile = xlsx.readFile("./GuideLine/컴퓨터공학과 권장이수 가이드라인.xlsx");
 // null 값 제거
-jason_to_arry()
-remove_null()
+
 
 
 const connect = mongoose.connect(config.url,
