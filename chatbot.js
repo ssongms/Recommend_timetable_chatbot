@@ -1,11 +1,11 @@
 var express = require('express');
 const request = require('request');
 const TARGET_URL = 'https://api.line.me/v2/bot/message/reply'
-const TOKEN = 'ymSHuQ8buLQKs3fgTQcUIMVHfnsGgZEbeTsLIzfRRrwKbZ5Kh0FvfqPmMLQ1EWYLgRQaX8ejC2ir3aaNTTLQIPGM8o3Q8GoSE0V4FiedWNT1t198m84paR5Q3lKPTzCm/SjPLpXJpf0T7u3+c0TkBgdB04t89/1O/w1cDnyilFU='
+const TOKEN = ''
 const fs = require('fs');
 const path = require('path');
 const HTTPS = require('https');
-const domain = "2019102146.osschatbot2022.tk"
+const domain = ""
 const sslport = 23023;
 
 const bodyParser = require('body-parser');
