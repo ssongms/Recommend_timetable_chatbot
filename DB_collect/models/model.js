@@ -17,4 +17,4 @@ const mongoose = require("mongoose");
   });
 
   const Subinfo = mongoose.model('Subinfo', SubSchema);
-  module.exports = {Subinfo};
+  module.exports = { Subinfo };
