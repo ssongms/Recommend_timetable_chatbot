@@ -1,4 +1,4 @@
-![logo](./img/logo.jpeg)
+![logo](./img/linelogo.jpeg)
 
 # About the project
 + 사용자가 본인의 캠퍼스, 단과대학, 학과, 학년학기를 순서대로 입력하면 경희대학교 학과 홈페이지의 권장이수체계도에서 제공하는 과목들의 개설시간을 고려한 시간표를 랜덤으로 제공함
@@ -41,9 +41,21 @@
 
 # Usage
 ![QR](./img/KHUchedule.png)
-* 위 QR 이미지를 통해 LINE 챗봇 친구추가가 가능합니다!
-* 혹은 LINE app에서 ID 찾기로 친구추가할 수 있습니다! : @419rrsrp
+### 위 QR 이미지를 통해 LINE 챗봇 친구추가가 가능합니다!
+### 혹은 LINE app에서 ID 찾기로 친구추가할 수 있습니다! : @419rrsrp
+
+
+![correct](./img/correctuse.jpeg)
+### 올바른 사용 과정 예시입니다. 챗봇이 안내하시는 대로 잘 따라가면 됩니다!
  
+![result](./img/provideSchedule.jpeg)
+### 시간표 추천 결과입니다!
+
+![rrecommend](./img/recommend.jpeg)
+### 마음에 들지 않는다면 '추천'을 입력하시면 됩니다!
+
+![incorrectuse](./img/incorrect.jpeg)
+### 잘못 사용한 예제입니다. 챗봇이 설명한 대로, '다시'를 입력해주시면 됩니다!
 
 
 
