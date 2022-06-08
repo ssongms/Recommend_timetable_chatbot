@@ -40,6 +40,12 @@
 
 
 # Usage
+![QR](./img/KHUchedule.png)
+* 위 QR 이미지를 통해 LINE 챗봇 친구추가가 가능합니다!
+* 혹은 LINE app에서 ID 찾기로 친구추가할 수 있습니다! : @419rrsrp
+ 
+
+
 
 
 
