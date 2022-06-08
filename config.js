@@ -1,0 +1,1 @@
+module.exports={url : "mongodb+srv://OSSprojectTIMETABLE:prjtt@cluster0.p5drdeq.mongodb.net/?retryWrites=true&w=majority"}
