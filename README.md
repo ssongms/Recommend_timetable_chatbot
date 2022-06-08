@@ -24,12 +24,12 @@
 
 # Getting Started
 + 1. Clone the Repository
-   ```sh
+   ```
    git clone http://khuhub.khu.ac.kr/2019102206/time_table.git
    ```
 
 + 2 - npm install
-   ```sh
+   ```
    npm install
    ```
 
