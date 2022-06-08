@@ -1,25 +1,21 @@
 const config = require('./config')
 const mongoose = require("mongoose");
-const { range } = require("express/lib/request");
+const {range} = require("express/lib/request");
 const xlsx = require("xlsx");
 const fs = require('fs')
 
-
-
-const connect = mongoose.connect(config.url,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("DB : Succesfully Connected"))
-  .catch((err) => console.log(err.message));
-
+const connect = mongoose
+    .connect(config.url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then(() => console.log("DB : Succesfully Connected"))
+    .catch((err) => console.log(err.message));
 
 var express = require('express');
 
-const { Subinfo } = require('./models/model');
+const {Subinfo} = require('./models/model');
 var request = require('request');
-
 
 var departmentinfo = '컴퓨터공학과'
 var gradeinfo = '2학년1학기'
@@ -27,16 +23,19 @@ var name = []
 var time = []
 var prof = []
 
-Subinfo.find({ department: `${departmentinfo}`, grade: `${gradeinfo}` }).then((sub) => {
-  if (sub) {
-    for (var i in sub) {
-      if (sub[i]['choice'] == '필수') {
-        name.push(sub[i]['name'])
+Subinfo
+    .find({department: `${departmentinfo}`, grade: `${gradeinfo}`})
+    .then((sub) => {
+        if (sub) {
+            for (var i in sub) {
+                if (sub[i]['choice'] == '필수') {
+                    name.push(sub[i]['name'])
 
-        var random_num = (Math.floor(Math.random() * (sub[i]['subject'].length)))
-        sub[i]['subject'][random_num]['time']
+                    var random_num = (Math.floor(Math.random() * (sub[i]['subject'].length)))
+                    sub[i]['subject'][random_num]['time']
 
-        if (time.length > 0) {
+                    if (time.length > 0) {
+                        /*
           while (true) {
             try {
               var tmp = 0
@@ -56,19 +55,76 @@ Subinfo.find({ department: `${departmentinfo}`, grade: `${gradeinfo}` }).then((s
               console.error(err);
             }
           }
-        }
-        time.push(sub[i]['subject'][random_num]['time'])
-        prof.push(sub[i]['subject'][random_num]['prof'])
+          */
+                        while (true) {
+                            try {
+                                var tmp = 0
+                                var random_num = (Math.floor(Math.random() * (sub[i]['subject'].length)))
 
+                                for (var j in time) {
+                                    if (time[j].slice(0, 1) == sub[i]['subject'][random_num]['time'].slice(0, 1)) {
+                                        var tmp_time1 = Number(`${time[j].slice(2, 4) + '.' + time[j].slice(5, 7)}`)
+                                        var tmp_time2 = Number(`${time[j].slice(8, 10) + '.' + time[j].slice(11, 13)}`)
+                                        var tmp_time3 = Number(
+                                            `${sub[i]['subject'][random_num]['time'].slice(2, 4) + '.' + sub[i]['subject'][random_num]['time'].slice(
+                                                5,
+                                                7
+                                            )}`
+                                        )
+
+                                        if (tmp_time3 >= tmp_time1 & tmp_time3 <= tmp_time2) {
+                                            tmp = 1
+                                            break
+                                        }
+                                    }
+                                }
+                                if (tmp == 0) {
+                                    break
+                                }
+                            } catch (err) {
+                                console.error(err);
+                            }
+                        }
+                    }
+                    time.push(sub[i]['subject'][random_num]['time'])
+                    prof.push(sub[i]['subject'][random_num]['prof'])
+
+                }
+            }
+            console.log(name)
+            console.log(time)
+            console.log(prof)
+        } else {
+            console.log(err)
+        }
+    })
+
+    //console.log(Math.floor(Math.random() * (10))) * /
+
+/*
+while (true) {
+  try {
+    var tmp = 0
+    var random_num = (Math.floor(Math.random() * (sub[i]['subject'].length)))
+
+    for (var j in time) {
+      if (time[j].slice(0, 1) == sub[i]['subject'][random_num]['time'].slice(0, 1)) {
+        var tmp_time1 = Number(`${time[j].slice(2, 4) + '.' + time[j].slice(5, 7)}`)
+        var tmp_time2 = Number(`${time[j].slice(8, 10) + '.' + time[j].slice(11, 13)}`)
+        var tmp_time3 = Number(`${sub[i]['subject'][random_num]['time'].slice(2, 4) + '.' + sub[i]['subject'][random_num]['time'].slice(5, 7)}`)
+
+        if (tmp_time3 >= tmp_time1 & tmp_time3 <= tmp_time2) {
+          tmp = 1
+          break
+        }
       }
     }
-    console.log(name)
-    console.log(time)
-    console.log(prof)
+    if (tmp == 0) {
+      break
+    }
   }
-  else {
-    console.log(err)
+  catch (err) {
+    console.error(err);
   }
-})
-
-//console.log(Math.floor(Math.random() * (10)))
+}
+*/
