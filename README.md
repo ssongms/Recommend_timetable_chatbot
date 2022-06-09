@@ -1,10 +1,12 @@
-
 <div align="center"><img src="./img/KHUchedulelogo.jpeg" width="40%" height="40%"></div>
 # About the project
 
 + **사용자가 본인의 캠퍼스, 단과대학, 학과, 학년학기를 순서대로 입력하면 경희대학교 학과 홈페이지의 권장이수체계도에서 제공하는 과목들의 개설시간을 고려한 시간표를 랜덤으로 제공함
 마음에 들지 않는다면 시간표 재생성 가능**
-<br>  
+
+## * Architecture
+<div align="center"><img src="./img/architecture.png" width="40%" height="40%"></div>
+<br>
 
  ---
 ### 개발동기
@@ -43,21 +45,23 @@
 
 
 # Usage
-<div align="left"><img src="./img/KHUchedule.png" width="20%" height="20%"></div>
+<div align="left"><img src="./img/KHUchedule.png" width="30%" height="30%"></div>
 위 QR 이미지를 통해 LINE 챗봇 친구추가가 가능합니다!
 혹은 LINE app에서 ID 찾기로 친구추가할 수 있습니다! (ID : @419rrsrp)
+<br>
+<br>
+
 
 <div align="left"><img src="./img/correctuse.jpeg" width="60%" height="60%"></div>
 올바른 사용 과정 예시입니다. 챗봇의 안내메세지에 따라 순서대로 답변하시면 됩니다! <br>
    추천결과가 마음에 들지 않는다면, '추천'을 입력해서 다시 재생성이 가능합니다!
- 
+ <br>
+ <br>
 
-<div align="left"><img src="./img/incorrect.jpeg" width="60%" height="60%"></div>
+
+<div align="left"><img src="./img/Incorrect.jpeg" width="55%" height="55%"></div>
 잘못 사용한 예제입니다. '다시'를 입력해주시면 처음부터 진행됩니다!
-
-
-
-
+<br>  <br>  <br>  <br>  
 
 ---
 # Roadmap
@@ -72,6 +76,7 @@
 
 
 (Demo 현재 소프트웨어융합대학 소속 학과만 제공)
+<br>  <br>  <br>  <br>  
 
 
 
@@ -83,13 +88,15 @@
 * Push to the Branch (git push origin feature/{function})
 * Open a Pull Request
 
+<br>  <br>  <br>  <br> 
 
-
+  
 ---
 # License
 [MIT LICENSE](LICENSE)
 
 
+<br>  <br>  <br>  <br>  
 
 ---
 # Contact
